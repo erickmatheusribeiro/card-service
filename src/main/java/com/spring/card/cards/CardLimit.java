@@ -1,4 +1,4 @@
-package com.spring.card.entities;
+package com.spring.card.cards;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

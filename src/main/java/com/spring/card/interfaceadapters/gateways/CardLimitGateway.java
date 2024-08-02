@@ -1,6 +1,6 @@
 package com.spring.card.interfaceadapters.gateways;
 
-import com.spring.card.entities.CardLimit;
+import com.spring.card.cards.CardLimit;
 import com.spring.card.frameworks.db.CardLimitRepository;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;

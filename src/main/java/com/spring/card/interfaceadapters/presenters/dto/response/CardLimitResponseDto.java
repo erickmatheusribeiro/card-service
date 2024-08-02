@@ -1,7 +1,7 @@
 package com.spring.card.interfaceadapters.presenters.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.spring.card.entities.CardLimit;
+import com.spring.card.cards.CardLimit;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

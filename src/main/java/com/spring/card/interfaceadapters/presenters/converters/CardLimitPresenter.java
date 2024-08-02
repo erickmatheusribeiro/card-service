@@ -1,6 +1,6 @@
 package com.spring.card.interfaceadapters.presenters.converters;
 
-import com.spring.card.entities.CardLimit;
+import com.spring.card.cards.CardLimit;
 import com.spring.card.interfaceadapters.presenters.dto.response.CardLimitResponseDto;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +24,4 @@ public class CardLimitPresenter {
 
         return entity;
     }
-
-
 }

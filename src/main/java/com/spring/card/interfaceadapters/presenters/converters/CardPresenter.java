@@ -1,11 +1,14 @@
 package com.spring.card.interfaceadapters.presenters.converters;
 
-import com.spring.card.entities.Card;
+import com.spring.card.cards.Card;
 import com.spring.card.interfaceadapters.presenters.dto.CardDto;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CardPresenter {
+
+
+
     public CardDto mapToDto(Card card) {
         CardDto dto = new CardDto();
 

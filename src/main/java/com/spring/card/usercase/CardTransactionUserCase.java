@@ -1,8 +1,8 @@
 package com.spring.card.usercase;
 
-import com.spring.card.entities.Card;
-import com.spring.card.entities.CardLimit;
-import com.spring.card.entities.CardTransaction;
+import com.spring.card.cards.Card;
+import com.spring.card.cards.CardLimit;
+import com.spring.card.cards.CardTransaction;
 import com.spring.card.interfaceadapters.gateways.CardGateway;
 import com.spring.card.interfaceadapters.gateways.CardLimitGateway;
 import com.spring.card.interfaceadapters.gateways.CardTransactionGateway;

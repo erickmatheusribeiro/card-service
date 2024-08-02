@@ -15,7 +15,7 @@ import lombok.Setter;
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class CardResquestDto {
     @JsonProperty("cpf")
-    @Schema(description = "CPF do usuário que cadastrou o cartão", example = "12345678901")
+    @Schema(description = "CPF do usuário que cadastrou o cartão", example = "21910056081")
     private String cpf;
 
     @JsonProperty("limite")

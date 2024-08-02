@@ -1,7 +1,7 @@
 package com.spring.card.usercase;
 
-import com.spring.card.entities.Card;
-import com.spring.card.entities.CardLimit;
+import com.spring.card.cards.Card;
+import com.spring.card.cards.CardLimit;
 import com.spring.card.interfaceadapters.gateways.CardGateway;
 import com.spring.card.interfaceadapters.gateways.CardLimitGateway;
 import com.spring.card.interfaceadapters.presenters.converters.CardLimitPresenter;
@@ -75,7 +75,7 @@ public class CardUserCase {
         if(!isExpirationDateValid(dto.getData_validade())){
             return exceptionHandlerUtil.genericExceptions(HttpStatus.INTERNAL_SERVER_ERROR, "INVALID_EXPIRATION_DATE");
         }
-        if(isCpfValid(dto.getCpf())){
+        if(!isCpfValid(dto.getCpf())){
             return exceptionHandlerUtil.genericExceptions(HttpStatus.INTERNAL_SERVER_ERROR, "INVALID_CPF");
         }
 

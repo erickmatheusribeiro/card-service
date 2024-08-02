@@ -32,7 +32,7 @@ public class CardWeb {
 
     @GetMapping()
     @Operation(summary = "recuperar o saldo do cartão pelo número")
-    public ResponseEntity<?> getCard(@RequestParam @Schema(description = "CPF do usuário que cadastrou o cartão", example = "12345678901") String cpf,
+    public ResponseEntity<?> getCard(@RequestParam @Schema(description = "CPF do usuário que cadastrou o cartão", example = "21910056081") String cpf,
                                      @RequestParam @Schema(description = "Número do cartão", example = "5568872479420825") String numero,
                                      @RequestParam @Schema(description = "Data de expiração do cartão", example = "0625") String data,
                                      @RequestParam @Schema(description = "CVV do cartão", example = "545") String cvv){

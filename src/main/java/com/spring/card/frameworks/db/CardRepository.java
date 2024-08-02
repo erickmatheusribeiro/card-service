@@ -1,6 +1,6 @@
 package com.spring.card.frameworks.db;
 
-import com.spring.card.entities.Card;
+import com.spring.card.cards.Card;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

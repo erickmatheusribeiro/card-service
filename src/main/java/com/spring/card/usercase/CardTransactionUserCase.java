@@ -63,6 +63,8 @@ public class CardTransactionUserCase {
         entity.setValue(dto.getValue());
         entity.setDateTimeCreated(LocalDateTime.now(clock));
 
+        cardLimit.setLimite(cardLimit.getLimite() + dto.getValue());
+        cardLimitGateway.insert(cardLimit);
 
         return ResponseEntity
                 .status(HttpStatus.CREATED)

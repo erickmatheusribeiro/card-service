@@ -1,63 +1,104 @@
 package com.spring.card.interfaceadapters.presenters.converters;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
-import com.spring.card.TestUtils;
 import com.spring.card.cards.Card;
 import com.spring.card.interfaceadapters.presenters.dto.CardDto;
-import org.json.JSONException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.skyscreamer.jsonassert.JSONAssert;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import java.io.IOException;
+public class CardPresenterTest {
 
-public class CardPresenterTest extends TestUtils {
+    @InjectMocks
+    private CardPresenter cardPresenter;
 
-    private static final String BASE_PATH = "src/test/java/com/spring/card/interfaceadapters/presenters/converters/cardpresenter";
+    @Mock
+    private Card card;
 
-    @Autowired
-    private CardPresenter presenter;
+    @Mock
+    private CardDto cardDto;
 
     @BeforeEach
     public void setUp() {
-        presenter = new CardPresenter();
-    }
-
-
-
-    void convertDtoToClass(String fileToConvert, String fileResult) throws IOException, JSONException {
-        CardDto dto = objectMapper.readValue(getMock(BASE_PATH + fileToConvert), CardDto.class);
-
-        Card shouldBe = presenter.mapToEntity(dto);
-
-        Card expected = objectMapper.readValue(getMock(BASE_PATH + fileResult), Card.class);
-
-        JSONAssert.assertEquals(
-                objectMapper.writeValueAsString(expected),
-                objectMapper.writeValueAsString(shouldBe),
-                false);
-    }
-
-    void convertClassToDto(String fileToConvert, String fileResult) throws IOException, JSONException {
-        Card entity = objectMapper.readValue(getMock(BASE_PATH + fileToConvert), Card.class);
-
-        CardDto shouldBe = presenter.mapToDto(entity);
-
-        CardDto expected = objectMapper.readValue(getMock(BASE_PATH + fileResult), CardDto.class);
-
-        JSONAssert.assertEquals(
-                objectMapper.writeValueAsString(expected),
-                objectMapper.writeValueAsString(shouldBe),
-                false);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void convertDtoToClass() throws IOException, JSONException {
-        convertDtoToClass("/Dto.json", "/Card.json");
+    public void testMapToDto_HappyPath() {
+        // Arrange
+        when(card.getCpf()).thenReturn("12345678900");
+        when(card.getCardNumber()).thenReturn("1234567890123456");
+        when(card.getExpirationDate()).thenReturn("1225");
+        when(card.getCvv()).thenReturn("123");
+
+        // Act
+        CardDto result = cardPresenter.mapToDto(card);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals("12345678900", result.getCpf());
+        assertEquals("1234567890123456", result.getNumero());
+        assertEquals("1225", result.getData_validade());
+        assertEquals("123", result.getCvv());
     }
 
     @Test
-    void convertClassToDto() throws IOException, JSONException {
-        convertClassToDto("/Card.json", "/Dto.json");
+    public void testMapToDto_UnhappyPath() {
+        // Arrange
+        when(card.getCpf()).thenReturn(null);
+        when(card.getCardNumber()).thenReturn(null);
+        when(card.getExpirationDate()).thenReturn(null);
+        when(card.getCvv()).thenReturn(null);
+
+        // Act
+        CardDto result = cardPresenter.mapToDto(card);
+
+        // Assert
+        assertNotNull(result);
+        assertNull(result.getCpf());
+        assertNull(result.getNumero());
+        assertNull(result.getData_validade());
+        assertNull(result.getCvv());
+    }
+
+    @Test
+    public void testMapToEntity_HappyPath() {
+        // Arrange
+        when(cardDto.getCpf()).thenReturn("12345678900");
+        when(cardDto.getNumero()).thenReturn("1234567890123456");
+        when(cardDto.getData_validade()).thenReturn("1225");
+        when(cardDto.getCvv()).thenReturn("123");
+
+        // Act
+        Card result = cardPresenter.mapToEntity(cardDto);
+
+        // Assert
+        assertNotNull(result);
+        assertEquals("12345678900", result.getCpf());
+        assertEquals("1234567890123456", result.getCardNumber());
+        assertEquals("1225", result.getExpirationDate());
+        assertEquals("123", result.getCvv());
+    }
+
+    @Test
+    public void testMapToEntity_UnhappyPath() {
+        // Arrange
+        when(cardDto.getCpf()).thenReturn(null);
+        when(cardDto.getNumero()).thenReturn(null);
+        when(cardDto.getData_validade()).thenReturn(null);
+        when(cardDto.getCvv()).thenReturn(null);
+
+        // Act
+        Card result = cardPresenter.mapToEntity(cardDto);
+
+        // Assert
+        assertNotNull(result);
+        assertNull(result.getCpf());
+        assertNull(result.getCardNumber());
+        assertNull(result.getExpirationDate());
+        assertNull(result.getCvv());
     }
 }

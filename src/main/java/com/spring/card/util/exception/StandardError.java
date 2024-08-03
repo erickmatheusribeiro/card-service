@@ -1,10 +1,12 @@
 package com.spring.card.util.exception;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class StandardError {
     private int statusCode;
 

@@ -4,7 +4,6 @@ import com.spring.card.cards.Card;
 import com.spring.card.cards.CardLimit;
 import com.spring.card.interfaceadapters.gateways.CardGateway;
 import com.spring.card.interfaceadapters.gateways.CardLimitGateway;
-import com.spring.card.interfaceadapters.presenters.converters.CardLimitPresenter;
 import com.spring.card.interfaceadapters.presenters.converters.CardPresenter;
 import com.spring.card.interfaceadapters.presenters.dto.request.CardResquestDto;
 import com.spring.card.interfaceadapters.presenters.dto.response.CardLimitResponseDto;
@@ -33,9 +32,6 @@ public class CardUserCase {
 
     @Resource
     private CardPresenter presenter;
-
-    @Resource
-    private CardLimitPresenter cardLimitPresenter;
 
     @Resource
     private ExceptionHandlerUtil exceptionHandlerUtil;
@@ -130,5 +126,4 @@ public class CardUserCase {
     public boolean isExpirationDateValid(String expirationDate){
         return ExpirationDateValidator.isValid(expirationDate);
     }
-
 }

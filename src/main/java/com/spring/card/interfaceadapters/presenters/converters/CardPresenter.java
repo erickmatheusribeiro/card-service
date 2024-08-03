@@ -6,9 +6,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CardPresenter {
-
-
-
     public CardDto mapToDto(Card card) {
         CardDto dto = new CardDto();
 

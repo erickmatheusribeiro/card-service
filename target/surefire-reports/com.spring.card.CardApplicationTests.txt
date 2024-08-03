@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: com.spring.card.CardApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.197 s <<< FAILURE! -- in com.spring.card.CardApplicationTests
+com.spring.card.CardApplicationTests -- Time elapsed: 0.197 s <<< ERROR!
+java.lang.NoSuchMethodError: 'org.junit.jupiter.api.extension.ExecutableInvoker org.junit.jupiter.api.extension.ExtensionContext.getExecutableInvoker()'
+	at org.springframework.test.context.junit.jupiter.SpringExtension.registerMethodInvoker(SpringExtension.java:381)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:132)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: java.lang.NoSuchMethodError: 'org.junit.jupiter.api.extension.ExecutableInvoker org.junit.jupiter.api.extension.ExtensionContext.getExecutableInvoker()'
+		at org.springframework.test.context.junit.jupiter.SpringExtension.registerMethodInvoker(SpringExtension.java:381)
+		at org.springframework.test.context.junit.jupiter.SpringExtension.afterAll(SpringExtension.java:143)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+		... 1 more
+

@@ -10,9 +10,9 @@
 	</parent>
 
 	<groupId>com.spring</groupId>
-	<artifactId>payment</artifactId>
+	<artifactId>card-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>payment</name>
+	<name>card-service</name>
 	<description>Uma aplicação de manipulação de pagamentos</description>
 
 	<properties>
@@ -106,10 +106,10 @@
 			<version>1.1.0</version>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-<!--		</dependency>-->
+		<!--dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency-->
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

@@ -3,7 +3,7 @@
 #
 FROM maven:3.9.6-amazoncorretto-21 AS build
 
-WORKDIR /payment-system
+WORKDIR /card
 
 COPY pom.xml .
 RUN mvn -B dependency:go-offline
@@ -16,10 +16,10 @@ RUN mvn -B package -DskipTests
 #
 FROM amazoncorretto:21-alpine-jdk
 
-WORKDIR /payment-system
+WORKDIR /card
 
-COPY --from=build /payment-system/target/*.jar ./payment-service.jar
+COPY --from=build /card/target/*.jar ./card-service.jar
 
 EXPOSE 7074
 
-ENTRYPOINT ["java","-jar","payment-service.jar"]
+ENTRYPOINT ["java","-jar","card-service.jar"]

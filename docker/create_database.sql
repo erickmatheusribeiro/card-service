@@ -1,1 +1,1 @@
-CREATE DATABASE payments;
+CREATE DATABASE cards;

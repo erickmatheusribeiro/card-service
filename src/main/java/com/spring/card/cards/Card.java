@@ -32,7 +32,7 @@ public class Card {
     @Column(name = "cvv")
     private String cvv;
 
-    @Column(name = "datetimecreation")
+    @Column(name = "datetimecreation", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime dateTimeCreated;
 

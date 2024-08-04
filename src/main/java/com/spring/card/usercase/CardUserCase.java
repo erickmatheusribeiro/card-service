@@ -126,4 +126,8 @@ public class CardUserCase {
     public boolean isExpirationDateValid(String expirationDate){
         return ExpirationDateValidator.isValid(expirationDate);
     }
+
+    public void setClock(Clock clock) {
+        this.clock = clock;
+    }
 }

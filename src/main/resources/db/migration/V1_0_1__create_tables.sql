@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS card
      cardnumber       VARCHAR(255) NOT NULL,
      validation       VARCHAR(6) NOT NULL,
      cvv              VARCHAR(3) NOT NULL,
-     datetimecreation TIMESTAMP NOT NULL,
+     datetimecreation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
      PRIMARY KEY (id)
   );
 

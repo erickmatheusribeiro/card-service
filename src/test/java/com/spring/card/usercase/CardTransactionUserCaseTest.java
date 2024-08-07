@@ -29,7 +29,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.HttpStatus.CREATED;
 
-public class CardTransactionUserCaseTest {
+class CardTransactionUserCaseTest {
 
     @InjectMocks
     private CardTransactionUserCase cardTransactionUserCase;
@@ -56,7 +56,7 @@ public class CardTransactionUserCaseTest {
     private Clock fixedClock;
 
     @BeforeEach
-    public void setUp() {
+     void setUp() {
         MockitoAnnotations.openMocks(this);
 
         fixedClock = Clock.fixed(Instant.parse("2023-08-01T10:00:00Z"), ZoneId.systemDefault());
@@ -90,7 +90,7 @@ public class CardTransactionUserCaseTest {
     }
 
     @Test
-    public void testCreateTransaction_HappyPath() {
+     void testCreateTransaction_HappyPath() {
         // Arrange
         when(cardGateway.findByCpfAndCardNumber(validRequestDto.getCpf(), validRequestDto.getCardNumber())).thenReturn(validCard);
         when(cardLimitGateway.findByCardId(validCard.getId())).thenReturn(validCardLimit);
@@ -108,7 +108,7 @@ public class CardTransactionUserCaseTest {
     }
 
     @Test
-    public void testCreateTransaction_CardNotFound() {
+     void testCreateTransaction_CardNotFound() {
         // Arrange
         when(cardGateway.findByCpfAndCardNumber(validRequestDto.getCpf(), validRequestDto.getCardNumber())).thenReturn(null);
         when(exceptionHandlerUtil.genericExceptions(eq(HttpStatus.INTERNAL_SERVER_ERROR), eq("CARD_NOT_FOUND")))
@@ -136,7 +136,7 @@ public class CardTransactionUserCaseTest {
     }
 
     @Test
-    public void testCreateTransaction_InvalidCvv() {
+     void testCreateTransaction_InvalidCvv() {
         // Arrange
         validCard.setCvv("999");
         when(cardGateway.findByCpfAndCardNumber(validRequestDto.getCpf(), validRequestDto.getCardNumber())).thenReturn(validCard);
@@ -165,7 +165,7 @@ public class CardTransactionUserCaseTest {
     }
 
     @Test
-    public void testCreateTransaction_InvalidExpirationDate() {
+     void testCreateTransaction_InvalidExpirationDate() {
         // Arrange
         when(cardGateway.findByCpfAndCardNumber(validRequestDto.getCpf(), validRequestDto.getCardNumber())).thenReturn(null);
         when(exceptionHandlerUtil.genericExceptions(eq(HttpStatus.INTERNAL_SERVER_ERROR), eq("CARD_NOT_FOUND")))
@@ -193,7 +193,7 @@ public class CardTransactionUserCaseTest {
     }
 
     @Test
-    public void testCreateTransaction_InsufficientCardLimit() {
+     void testCreateTransaction_InsufficientCardLimit() {
         // Arrange
         validCardLimit.setLimite(50.0);
         when(cardGateway.findByCpfAndCardNumber(validRequestDto.getCpf(), validRequestDto.getCardNumber())).thenReturn(validCard);

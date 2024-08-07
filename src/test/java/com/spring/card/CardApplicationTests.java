@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CardApplicationTests {
+public class CardApplicationTests {
 
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
+		// Verifica se o contexto da aplicação carrega corretamente.
 	}
-
 }

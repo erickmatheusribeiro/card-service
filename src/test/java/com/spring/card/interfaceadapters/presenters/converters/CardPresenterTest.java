@@ -10,7 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-public class CardPresenterTest {
+class CardPresenterTest {
 
     @InjectMocks
     private CardPresenter cardPresenter;
@@ -22,12 +22,12 @@ public class CardPresenterTest {
     private CardDto cardDto;
 
     @BeforeEach
-    public void setUp() {
+     void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void testMapToDto_HappyPath() {
+     void testMapToDto_HappyPath() {
         // Arrange
         when(card.getCpf()).thenReturn("12345678900");
         when(card.getCardNumber()).thenReturn("1234567890123456");
@@ -46,7 +46,7 @@ public class CardPresenterTest {
     }
 
     @Test
-    public void testMapToDto_UnhappyPath() {
+     void testMapToDto_UnhappyPath() {
         // Arrange
         when(card.getCpf()).thenReturn(null);
         when(card.getCardNumber()).thenReturn(null);
@@ -65,7 +65,7 @@ public class CardPresenterTest {
     }
 
     @Test
-    public void testMapToEntity_HappyPath() {
+     void testMapToEntity_HappyPath() {
         // Arrange
         when(cardDto.getCpf()).thenReturn("12345678900");
         when(cardDto.getNumero()).thenReturn("1234567890123456");
@@ -84,7 +84,7 @@ public class CardPresenterTest {
     }
 
     @Test
-    public void testMapToEntity_UnhappyPath() {
+     void testMapToEntity_UnhappyPath() {
         // Arrange
         when(cardDto.getCpf()).thenReturn(null);
         when(cardDto.getNumero()).thenReturn(null);

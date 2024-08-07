@@ -61,7 +61,7 @@ A operação de cadastro de cartão é realizada através do método POST `/api/
 A operação de consulta de saldo do cartão é realizada através do método GET `/api/cartao` e recebe como parâmetros o CPF do usuário, o número do cartão, a data de validade e o CVV do cartão.
 
 **Exemplo Request:**
-```json
+```curl
 curl 'http://localhost:7074/api/cartao?cpf=21910056081&numero=5568872479420825&data=0625&cvv=545' \
 -H 'Accept-Language: en-US,en;q=0.9,pt;q=0.8' \
 -H 'Connection: keep-alive' \

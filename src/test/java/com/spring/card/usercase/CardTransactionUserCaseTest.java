@@ -84,7 +84,6 @@ class CardTransactionUserCaseTest {
         validCardTransaction = new CardTransaction();
         validCardTransaction.setId(1);
         validCardTransaction.setCard(validCard);
-        validCardTransaction.setPaymentId("payment-123");
         validCardTransaction.setValue(100.0);
         validCardTransaction.setDateTimeCreated(LocalDateTime.now(fixedClock));
     }

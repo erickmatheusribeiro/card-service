@@ -36,7 +36,6 @@ public class CardTransactionGatewayTest {
 
         cardTransaction = new CardTransaction();
         cardTransaction.setId(1);
-        cardTransaction.setPaymentId("payment123");
         cardTransaction.setValue(1000.0);
         cardTransaction.setDateTimeCreated(LocalDateTime.now());
         cardTransaction.setCard(card);

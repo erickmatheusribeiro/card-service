@@ -22,14 +22,12 @@ public class CardTransactionTest {
         LocalDateTime dateTimeCreated = LocalDateTime.now();
 
         cardTransaction.setId(id);
-        cardTransaction.setPaymentId(paymentId);
         cardTransaction.setValue(value);
         cardTransaction.setDateTimeCreated(dateTimeCreated);
         cardTransaction.setCard(card);
 
         // Verificação dos valores definidos
         assertThat(cardTransaction.getId()).isEqualTo(id);
-        assertThat(cardTransaction.getPaymentId()).isEqualTo(paymentId);
         assertThat(cardTransaction.getValue()).isEqualTo(value);
         assertThat(cardTransaction.getDateTimeCreated()).isEqualTo(dateTimeCreated);
         assertThat(cardTransaction.getCard()).isEqualTo(card);

@@ -1,15 +1,15 @@
 # FIAP Hackathon
 ## API para gestão de cartões
 
-Este repositório refere-se ao microsserviço de usuários para atender aos requisitos do desafio proposto pelo
+Este repositório refere-se ao microsserviço de cartões para atender aos requisitos do desafio proposto pelo
 MBA em desenvolvimento Java, este projeto envolve a comunicação entre microserviços.
 
 ## Principais recursos deste microserviço
 
 Responsável por cadastrar informações dos usuarios, assim será possível:
-* Incluir novos usuários;
-* gerar token para autorização no serviço;
-* Consultar usuários do sistema;
+* Incluir novos cartões;
+* Consultar saldos dos cartões;
+* Incluir novas movimentações;
 
 ## Tecnologias
 

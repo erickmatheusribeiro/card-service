@@ -59,7 +59,6 @@ public class CardTransactionUserCase {
         CardTransaction entity = new CardTransaction();
 
         entity.setCard(card);
-        entity.setPaymentId(dto.getPaymentId());
         entity.setValue(dto.getValue());
         entity.setDateTimeCreated(LocalDateTime.now(clock));
 

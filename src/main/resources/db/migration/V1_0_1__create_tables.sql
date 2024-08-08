@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS card_transaction
   (
      id               SERIAL NOT NULL,
      cardid           BIGINT NOT NULL,
-     paymentid        VARCHAR(255) NOT NULL,
      value            DOUBLE PRECISION NOT NULL,
      datetimecreation TIMESTAMP NOT NULL,
      PRIMARY KEY (id)

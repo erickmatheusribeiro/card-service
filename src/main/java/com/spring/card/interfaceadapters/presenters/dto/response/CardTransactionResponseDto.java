@@ -12,13 +12,11 @@ import lombok.Setter;
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class CardTransactionResponseDto {
     private String id;
-    private String paymentId;
     private double value;
     private String created;
 
     public CardTransactionResponseDto(CardTransaction entity) {
         this.id = entity.getId().toString();
-        this.paymentId = entity.getPaymentId();
         this.value = entity.getValue();
         this.created = entity.getDateTimeCreated().toString();
     }

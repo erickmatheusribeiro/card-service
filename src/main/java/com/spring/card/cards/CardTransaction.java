@@ -20,9 +20,6 @@ public class CardTransaction {
     @Column
     private Integer id;
 
-    @Column(name = "paymentid")
-    private String paymentId;
-
     @Column(name = "value")
     private double value;
 

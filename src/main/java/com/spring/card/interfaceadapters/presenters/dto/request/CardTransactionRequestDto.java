@@ -22,10 +22,6 @@ public class CardTransactionRequestDto {
     @Schema(description = "Número do cartão", example = "5568872479420825")
     private String cardNumber;
 
-    @JsonProperty("paymentid")
-    @Schema(description = "ID do pagamento", example = "12345678901")
-    private String paymentId;
-
     @JsonProperty("data_validade")
     @Schema(description = "Data de expiração do cartão", example = "0625")
     private String expirationDate;

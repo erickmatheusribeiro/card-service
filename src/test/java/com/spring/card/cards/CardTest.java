@@ -1,38 +1,55 @@
 package com.spring.card.cards;
 
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CardTest {
 
     @Test
-    public void testCardEntity() {
-        // Criação de uma instância de Card
+    public void testAllArgsConstructor() {
+        LocalDateTime now = LocalDateTime.now();
+        CardLimit cardLimit = new CardLimit();
+        List<CardTransaction> cardTransactions = new ArrayList<>();
+
+        Card card = new Card(1, "12345678901", "1234567812345678", "12/25", "123", now, cardLimit, cardTransactions);
+
+        assertEquals(1, card.getId());
+        assertEquals("12345678901", card.getCpf());
+        assertEquals("1234567812345678", card.getCardNumber());
+        assertEquals("12/25", card.getExpirationDate());
+        assertEquals("123", card.getCvv());
+        assertEquals(now, card.getDateTimeCreated());
+        assertEquals(cardLimit, card.getCardLimit());
+        assertEquals(cardTransactions, card.getCardTransactions());
+    }
+
+    @Test
+    public void testGettersAndSetters() {
         Card card = new Card();
+        LocalDateTime now = LocalDateTime.now();
+        CardLimit cardLimit = new CardLimit();
+        List<CardTransaction> cardTransactions = new ArrayList<>();
 
-        // Definindo valores para os campos
-        Integer id = 1;
-        String cpf = "21910056081";
-        String cardNumber = "5568872479420825";
-        String expirationDate = "0625";
-        String cvv = "545";
-        LocalDateTime dateTimeCreated = LocalDateTime.now();
+        card.setId(1);
+        card.setCpf("12345678901");
+        card.setCardNumber("1234567812345678");
+        card.setExpirationDate("12/25");
+        card.setCvv("123");
+        card.setDateTimeCreated(now);
+        card.setCardLimit(cardLimit);
+        card.setCardTransactions(cardTransactions);
 
-        card.setId(id);
-        card.setCpf(cpf);
-        card.setCardNumber(cardNumber);
-        card.setExpirationDate(expirationDate);
-        card.setCvv(cvv);
-        card.setDateTimeCreated(dateTimeCreated);
-
-        // Verificação dos valores definidos
-        assertThat(card.getId()).isEqualTo(id);
-        assertThat(card.getCpf()).isEqualTo(cpf);
-        assertThat(card.getCardNumber()).isEqualTo(cardNumber);
-        assertThat(card.getExpirationDate()).isEqualTo(expirationDate);
-        assertThat(card.getCvv()).isEqualTo(cvv);
-        assertThat(card.getDateTimeCreated()).isEqualTo(dateTimeCreated);
+        assertEquals(1, card.getId());
+        assertEquals("12345678901", card.getCpf());
+        assertEquals("1234567812345678", card.getCardNumber());
+        assertEquals("12/25", card.getExpirationDate());
+        assertEquals("123", card.getCvv());
+        assertEquals(now, card.getDateTimeCreated());
+        assertEquals(cardLimit, card.getCardLimit());
+        assertEquals(cardTransactions, card.getCardTransactions());
     }
 }
-

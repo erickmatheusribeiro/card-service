@@ -110,41 +110,6 @@ class CardUserCaseTest {
         assertEquals(validCardDto.getCpf(), responseDto.getCpf());
     }
 
-    //todo: ajustar
-//    @Test
-//     void testCreateCard_CardDuplicate() {
-//        // Arrange
-//        when(cardGateway.findByCardNumber(validRequestDto.getNumero())).thenReturn(validCard);
-//        when(cardGateway.countByCpf(validRequestDto.getCpf())).thenReturn(1L);
-//        when(exceptionHandlerUtil.genericExceptions(eq(HttpStatus.INTERNAL_SERVER_ERROR), eq("CARD_DUPLICATE")))
-//                .thenAnswer(invocation -> {
-//                    HttpStatus status = invocation.getArgument(0);
-//                    String message = invocation.getArgument(1);
-//                    return ResponseEntity.status(status)
-//                            .body(new StandardError(
-//                                    status.value(),
-//                                    message,
-//                                    "Card already exists",
-//                                    "/api/cartao"
-//                            ));
-//                });
-
-        // Act
-//        ResponseEntity<?> response = cardUserCase.createCard(validRequestDto);
-
-        // Assert
-//        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
-//        assertNotNull(response.getBody());
-//        assertTrue(response.getBody() instanceof StandardError);
-//        StandardError error = (StandardError) response.getBody();
-//        assertEquals("CARD_DUPLICATE", error.getError());
-
-        // Verify the interactions with the mocks
-//        verify(cardGateway, times(1)).findByCardNumber(validRequesDuplicatetDto.getNumero());
-//        verify(cardGateway, times(1)).countByCpf(validRequesDuplicatetDto.getCpf());
-//        verify(exceptionHandlerUtil, times(1)).genericExceptions(eq(HttpStatus.INTERNAL_SERVER_ERROR), eq());
-//    }
-
     @Test
      void testCreateCard_InvalidCardLimit() {
         // Arrange
@@ -361,11 +326,6 @@ class CardUserCaseTest {
         when(cardGateway.findByCpfAndCardNumber(cpf, numero)).thenReturn(validCard);
         when(cardLimitGateway.findByCardId(validCard.getId())).thenReturn(validCardLimit);
 
-        // Opcional: configurar o mapeamento para o DTO, se necessário
-        // No seu caso, você pode precisar ajustar conforme a implementação do `CardLimitResponseDto`
-        // Exemplo, se você tiver um método no presenter que mapeia CardLimit para CardLimitResponseDto:
-        // when(presenter.mapToDto(validCardLimit)).thenReturn(new CardLimitResponseDto(validCardLimit));
-
         // Act
         ResponseEntity<?> response = cardUserCase.getLimitByCard(cpf, numero, data, cvv);
 
@@ -381,8 +341,6 @@ class CardUserCaseTest {
         // Verificar interações
         verify(cardGateway, times(1)).findByCpfAndCardNumber(cpf, numero);
         verify(cardLimitGateway, times(1)).findByCardId(validCard.getId());
-        // Se você estiver usando um mapper, certifique-se de verificar sua chamada
-        // verify(presenter, times(1)).mapToDto(validCardLimit);
     }
 }
 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping(value="/api/cartao")
+@RequestMapping(value="/cartao")
 @Tag(name = "Cartão", description = "Metódos para manipulçação de Cartão")
 public class CardWeb {
 

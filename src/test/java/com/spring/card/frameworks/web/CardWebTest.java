@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.mockito.ArgumentMatchers.any;
+
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -24,8 +25,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class CardWebTest {
 
+
     @Autowired
     private MockMvc mockMvc;
+
 
     @MockBean
     private CardController cardController;
@@ -34,6 +37,7 @@ class CardWebTest {
     private CardTransactionController cardTransactionController;
 
     @Autowired
+
     private CardWeb cardWeb;
 
     private ObjectMapper objectMapper;
@@ -64,6 +68,7 @@ class CardWebTest {
         String numero = "5568872479420825";
         String data = "0625";
         String cvv = "545";
+
 
         when(cardController.findByCardNumber(any(String.class), any(String.class), any(String.class), any(String.class)))
                 .thenReturn(ResponseEntity.ok().build());

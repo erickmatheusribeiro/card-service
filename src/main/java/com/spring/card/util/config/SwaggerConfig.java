@@ -14,9 +14,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
 
-//
 @Value("${swagger.server.address}")
 private String serverUrl;
+
 
     @Bean
     public OpenAPI apiDocConfig() {
@@ -47,5 +47,4 @@ private String serverUrl;
                 .packagesToScan("com.spring.card.frameworks.web")
                 .build();
     }
-
 }

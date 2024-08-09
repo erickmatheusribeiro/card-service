@@ -14,8 +14,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
 
-    @Value("${swagger.server.address}")
-    private String serverUrl;
+@Value("${swagger.server.address}")
+private String serverUrl;
+
 
     @Bean
     public OpenAPI apiDocConfig() {

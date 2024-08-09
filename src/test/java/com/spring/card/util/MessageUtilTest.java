@@ -43,6 +43,4 @@ public class MessageUtilTest {
         String message = MessageUtil.getMessage(code, "John");
         assertEquals(expectedMessage, message);
     }
-
 }
-

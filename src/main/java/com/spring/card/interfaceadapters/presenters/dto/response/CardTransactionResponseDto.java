@@ -12,13 +12,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class CardTransactionResponseDto {
-
     @JsonProperty("id")
     private String id;
-
     @JsonProperty("value")
     private double value;
-
     @JsonProperty("created")
     private String created;
 

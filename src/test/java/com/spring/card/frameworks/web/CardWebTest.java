@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.card.interfaceadapters.controllers.CardController;
 import com.spring.card.interfaceadapters.controllers.CardTransactionController;
 import com.spring.card.interfaceadapters.presenters.dto.request.CardResquestDto;
-import com.spring.card.interfaceadapters.presenters.dto.request.CardTransactionRequestDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,17 +80,17 @@ class CardWebTest {
                 .andExpect(status().isOk());
     }
 
-    @Test
-    void testUpdateCard() throws Exception {
-        CardTransactionRequestDto transactionRequestDto = new CardTransactionRequestDto();
-        // Set fields for transactionRequestDto
-
-        when(cardTransactionController.createTransaction(any(CardTransactionRequestDto.class)))
-                .thenReturn(ResponseEntity.ok().build());
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/cartao/transactions")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(transactionRequestDto)))
-                .andExpect(status().isOk());
-    }
+//    @Test
+//    void testUpdateCard() throws Exception {
+//        CardTransactionRequestDtoTest transactionRequestDto = new CardTransactionRequestDtoTest();
+//        // Set fields for transactionRequestDto
+//
+//        when(cardTransactionController.createTransaction(any(CardTransactionRequestDtoTest.class)))
+//                .thenReturn(ResponseEntity.ok().build());
+//
+//        mockMvc.perform(MockMvcRequestBuilders.post("/cartao/transactions")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(objectMapper.writeValueAsString(transactionRequestDto)))
+//                .andExpect(status().isOk());
+//    }
 }

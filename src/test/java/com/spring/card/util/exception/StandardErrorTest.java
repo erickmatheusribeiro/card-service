@@ -6,21 +6,37 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StandardErrorTest {
 
     @Test
-    public void testStandardErrorConstructor() {
-        // Dados de entrada para o construtor
-        int expectedStatusCode = 500;
-        String expectedError = "UNREPORTED_DATA_ERROR";
-        String expectedMessage = "An error occurred";
-        String expectedPath = "/api/cartao";
+    public void testNoArgsConstructor() {
+        // Teste do construtor sem argumentos (NoArgsConstructor)
+        StandardError standardError = new StandardError();
+        assertNotNull(standardError);
+    }
 
-        // Criação da instância de StandardError usando o construtor
-        StandardError standardError = new StandardError(expectedStatusCode, expectedError, expectedMessage, expectedPath);
+    @Test
+    public void testAllArgsConstructor() {
+        // Teste do construtor com todos os argumentos (AllArgsConstructor)
+        StandardError standardError = new StandardError(404, "Not Found", "The resource was not found", "/api/resource");
 
-        // Verificação dos valores dos campos
-        assertEquals(expectedStatusCode, standardError.getStatusCode(), "Status code should match");
-        assertEquals(expectedError, standardError.getError(), "Error should match");
-        assertEquals(expectedMessage, standardError.getMessage(), "Message should match");
-        assertEquals(expectedPath, standardError.getPath(), "Path should match");
+        assertEquals(404, standardError.getStatusCode());
+        assertEquals("Not Found", standardError.getError());
+        assertEquals("The resource was not found", standardError.getMessage());
+        assertEquals("/api/resource", standardError.getPath());
+    }
+
+    @Test
+    public void testGettersAndSetters() {
+        // Teste dos getters e setters
+        StandardError standardError = new StandardError();
+
+        standardError.setStatusCode(500);
+        standardError.setError("Internal Server Error");
+        standardError.setMessage("An unexpected error occurred");
+        standardError.setPath("/api/resource");
+
+        assertEquals(500, standardError.getStatusCode());
+        assertEquals("Internal Server Error", standardError.getError());
+        assertEquals("An unexpected error occurred", standardError.getMessage());
+        assertEquals("/api/resource", standardError.getPath());
     }
 }
 

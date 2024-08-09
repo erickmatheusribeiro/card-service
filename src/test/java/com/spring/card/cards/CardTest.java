@@ -52,4 +52,21 @@ public class CardTest {
         assertEquals(cardLimit, card.getCardLimit());
         assertEquals(cardTransactions, card.getCardTransactions());
     }
+
+
+    @Test
+    public void testNoArgsConstructor() {
+        // Criação de um objeto Card usando o construtor sem argumentos
+        Card card = new Card();
+
+        // Verificação se todos os atributos estão inicializados corretamente (null ou valor padrão)
+        assertNull(card.getId());
+        assertNull(card.getCpf());
+        assertNull(card.getCardNumber());
+        assertNull(card.getExpirationDate());
+        assertNull(card.getCvv());
+        assertNull(card.getDateTimeCreated());
+        assertNull(card.getCardLimit());
+        assertNull(card.getCardTransactions());
+    }
 }

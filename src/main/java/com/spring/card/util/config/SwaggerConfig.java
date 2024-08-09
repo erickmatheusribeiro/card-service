@@ -17,7 +17,6 @@ public class SwaggerConfig {
 @Value("${swagger.server.address}")
 private String serverUrl;
 
-
     @Bean
     public OpenAPI apiDocConfig() {
         return new OpenAPI()

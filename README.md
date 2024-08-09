@@ -132,3 +132,7 @@ A operação de inclusão de movimentação do cartão é realizada através do 
   * **card_transaction**: Responsável por registrar os dados de um pagamento.
 
 ![Estrutura_de_Dados](img/EstruturaDados.png)
+
+## Cobertura de Teste com JaCoCo
+Alcançando um total de 95% de cobertura incluindo teste de unidade e integração.
+![Cobertura_testes](img/CoberturaTestes.png)
